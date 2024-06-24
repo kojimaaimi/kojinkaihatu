@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/memo.css}">
+<title>memo機能</title>
+<script>
+    function confirmDelete() {
+        return confirm("本当に削除しますか？");
+    }
+
+    window.onload = function () {
+    const memoCells = document.querySelectorAll('.memoanime');
+
+    memoCells.forEach(function (cell) {
+        const content = cell.textContent.trim(); // 余分なスペースを削除
+        const lines = content.split('\n'); // 改行で分割
+        let displayText = '';
+
+        const maxChars = 5; // 一行目の最大文字数
+
+        if (lines.length > 0) {
+            const firstLine = lines[0]; // 最初の行のみを取得
+
+            if (firstLine.length > maxChars) {
+                displayText = firstLine.substring(0, maxChars) + '...'; // 最初の5文字のみ表示
+            } else {
+                displayText = firstLine; // 最初の行が5文字以下の場合はそのまま表示
+            }
+        }
+
+        const remainingContent = lines.slice(1).join('<br>'); // 改行で結合
+        cell.innerHTML = '<span class="first-line">' + displayText + '</span><br><span class="hover-content">' + content + '</span>';
+
+        const hoverContent = cell.querySelector('.hover-content');
+
+        // ホバー時に残りの内容を表示する
+        cell.addEventListener('mouseenter', function () {
+            hoverContent.style.display = 'block'; // ブロック要素として表示
+        });
+
+        cell.addEventListener('mouseleave', function () {
+            hoverContent.style.display = 'none';
+        });
+    });
+};
+
+</script>
+</head>
+<header>
+    <h1>CL_You~*</h1>
+    <h2 th:text="${username}+'ようこそ'">ようこそ</h2>
+    <nav>
+    <ul>
+        <li><a href="/">ホームへ</a></li>
+    </ul>
+    </nav>
+  </header>
+<body>
+<h1>Memo</h1>
+<table>
+<tr><th></th><th>投稿日時</th><th></th><th></th></tr>
+<tr th:each="memo : ${memos}">
+<td class="memo memoanime" th:utext="${memo.memo_content.replaceAll('\n', '<br>')}"></td>
+<td th:text="${memo.registration}" class="memo registration"></td>
+<td><a th:href="@{/memo/edit/{id}(id=${memo.id})}" class="pochitto_btn_blue hensyu">編集</a></td>
+<td>
+    <form th:action="@{/memo/delete/{id}(id=${memo.id})}" method="post" onsubmit="return confirmDelete()">
+        <input type="hidden" name="id" th:value="${memo.id}"/>
+        <input type="submit"class="pochitto_btn_blue sakuzyo" value="削除"/>
+    </form>
+</td>
+</tr>
+</table>
+<h3>新規投稿</h3>
+<form  th:action="@{/memo/add}" method="post" class="post">
+    <textarea th:name="memo_content" class="title" rows="5" cols="50" th:text="${newMemoForm.memo_content}"></textarea>
+    <button type="submit" class="button-21">OK</button>
+    </form>
+<span th:if="${#fields.hasErrors('newMemoForm.memo_content')}" th:errors="*{newMemoForm.memo_content}" class="error-message"></span>
+ <div class="top-layer"></div>
+</body>
+</html>

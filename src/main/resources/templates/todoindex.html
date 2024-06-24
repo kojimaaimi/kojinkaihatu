@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/todo.css}" />
+    <title>TodoApp</title>
+  </head>
+  <header>
+    <h1>CL_You~*</h1>
+    <h2 th:text="${username}+'ようこそ'">ようこそ</h2>
+    <nav>
+      <ul>
+        <li><a href="/">ホームへ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <h1>TodoList</h1>
+    <!-- <h3>マイタスク</h3> -->
+    <div class="display-flex">
+      <div class="kousin">
+        <form th:action="@{/update/{id}(id=${todo.id})}" th:each="todo : ${todos}" method="post">
+          <label class="custom-checkbox">
+          <input type="checkbox" th:name="done" th:checked="${todo.done}" th:value="true"/>
+          <span class="checkmark"></span>
+          </label>
+          <input type="hidden" th:name="id" th:value="${todo.id}" />
+          <input type="text" th:name="title" th:value="${todo.title}" class="my-input" maxlength="50"/>
+
+          <!-- <input type="submit" class="pochitto_btn_blue" value="更新"> -->
+          <button type="submit" class="delete-button">
+            <img src="https://img.icons8.com/?size=100&id=22104&format=png&color=000000" alt="更新">
+            </button>
+            </form>
+          <!-- <span th:if="true" th:each="error : ${#fields.errors('*{newtodoForm.title}')}" th:text="${error}" class="error-message"></span> -->
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var forms = document.querySelectorAll('.kousin form');
+
+            forms.forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    var titleInput = this.querySelector('.my-input');
+                    var minLength = 3;
+                    var maxLength = 30; // 最大文字数を30文字に変更
+                    var currentLength = titleInput.value.length;
+
+                    if (currentLength < minLength || currentLength > maxLength) {
+                        if (currentLength < minLength) {
+                            alert("最低" + minLength + "文字以上入力してください");
+                        } else {
+                            alert("最大" + maxLength + "文字まで入力できます");
+                        }
+                        event.preventDefault(); // フォームの送信をキャンセル
+                    }
+                });
+            });
+        });
+
+      </script>
+      <div class="sakuzyo">
+        <form th:each="todo : ${todos}" th:action="@{/delete/{id}(id=${todo.id})}">
+          <!-- <input type="submit"class="pochitto_btn_blue" value="削除"/> -->
+          <button type="submit" class="delete-button">
+            <img src="https://img.icons8.com/?size=100&id=14237&format=png&color=000000" alt="ゴミ箱アイコン">
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <form th:action="@{/add}" method="post">
+      <input type="text" th:name="title" th:value="${todoForm.title}" class="title"/>
+      <input type="submit" class="tuika"  value="追加" />
+      </form>
+    <span th:if="true" th:errors="*{todoForm.title}" class="error-message"></span>
+      
+    <canvas id="canvas"></canvas>
+    <div class="top-layer"></div>
+
+    <script>
+      var Canvas = document.getElementById("canvas");
+      var ctx = Canvas.getContext("2d");
+
+      var resize = function () {
+        Canvas.width = Canvas.clientWidth;
+        Canvas.height = Canvas.clientHeight;
+      };
+      window.addEventListener("resize", resize);
+      resize();
+
+      var elements = [];
+      var presets = {};
+
+      presets.o = function (x, y, s, dx, dy) {
+        return {
+          x: x,
+          y: y,
+          r: 12 * s,
+          w: 5 * s,
+          dx: dx,
+          dy: dy,
+          draw: function (ctx, t) {
+            this.x += this.dx;
+            this.y += this.dy;
+
+            ctx.beginPath();
+            ctx.arc(
+              this.x + +Math.sin((50 + x + t / 10) / 100) * 3,
+              this.y + +Math.sin((45 + x + t / 10) / 100) * 4,
+              this.r,
+              0,
+              2 * Math.PI,
+              false
+            );
+            ctx.lineWidth = this.w;
+            ctx.strokeStyle = "#fff";
+            ctx.stroke();
+          },
+        };
+      };
+
+      presets.x = function (x, y, s, dx, dy, dr, r) {
+        r = r || 0;
+        return {
+          x: x,
+          y: y,
+          s: 20 * s,
+          w: 5 * s,
+          r: r,
+          dx: dx,
+          dy: dy,
+          dr: dr,
+          draw: function (ctx, t) {
+            this.x += this.dx;
+            this.y += this.dy;
+            this.r += this.dr;
+
+            var _this = this;
+            var line = function (x, y, tx, ty, c, o) {
+              o = o || 0;
+              ctx.beginPath();
+              ctx.moveTo(-o + (_this.s / 2) * x, o + (_this.s / 2) * y);
+              ctx.lineTo(-o + (_this.s / 2) * tx, o + (_this.s / 2) * ty);
+              ctx.lineWidth = _this.w;
+              ctx.strokeStyle = c;
+              ctx.stroke();
+            };
+
+            ctx.save();
+
+            ctx.translate(
+              this.x + Math.sin((x + t / 10) / 100) * 5,
+              this.y + Math.sin((10 + x + t / 10) / 100) * 2
+            );
+            ctx.rotate((this.r * Math.PI) / 180);
+
+            line(-1, -1, 1, 1, "#fff");
+            line(1, -1, -1, 1, "#fff");
+
+            ctx.restore();
+          },
+        };
+      };
+
+      for (var x = 0; x < Canvas.width; x++) {
+        for (var y = 0; y < Canvas.height; y++) {
+          if (Math.round(Math.random() * 8000) == 1) {
+            var s = (Math.random() * 5 + 1) / 10;
+            if (Math.round(Math.random()) == 1)
+              elements.push(presets.o(x, y, s, 0, 0));
+            else
+              elements.push(
+                presets.x(
+                  x,
+                  y,
+                  s,
+                  0,
+                  0,
+                  (Math.random() * 3 - 1) / 10,
+                  Math.random() * 360
+                )
+              );
+          }
+        }
+      }
+
+      setInterval(function () {
+        ctx.clearRect(0, 0, Canvas.width, Canvas.height);
+
+        var time = new Date().getTime();
+        for (var e in elements) elements[e].draw(ctx, time);
+      }, 10);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+ }
+ html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-image: url("https://th.bing.com/th/id/R.31455a1dc4c2a14d7ed1af600d19ce29?rik=mYi46tIQU1dZ%2bQ&riu=http%3a%2f%2f1.bp.blogspot.com%2f-gq_tAX03Btk%2fVpjBpezB-kI%2fAAAAAAAA25Y%2fs__gB-bb2lc%2fs1600%2fbg_natural_ocean.jpg&ehk=8pZu5iCy60jRwV6cfxvUB8JE%2fL6vwF2tEVa%2bTyq%2fNGw%3d&risl=&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+ header {
+    /* padding: 20px 4% 20px; */
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: #4673ebc2;
+    display: flex;
+    align-items: center;
+ }
+
+ h1 {
+    margin:10px 0 10px 20px; 
+    padding: 0;
+    font-size: 25px;
+    text-decoration: none;
+    color: #ffffff;
+ }
+ h2{
+    margin: auto;
+    font-size: 25px;
+    text-decoration: none;
+    color: #ffffff;
+    letter-spacing: 2px;
+    padding-top:65px;
+ }
+
+ /* ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    color: #fdfcfc;
+ } */
+ /* li > a{
+    margin: 0 0 0 15px;
+    font-size: 20px;
+    color: white;
+    padding-right: 20px;
+ }
+ nav {
+    margin: 0;
+ } */
+ img{
+    opacity: 60%;
+ }
+
+ main >p{
+    font-size: 50px;
+    font-weight: 600;
+    margin: 0;
+    /* padding-top: 140px; */
+    color: #ffffff;
+ }
+
+ /* nav >ul> li> a:hover{
+    color: #000000;
+ } */
+ 
+ @keyframes bound-anim{
+  0%{transform: translateY(0);}
+  100%{transform: translateY(24px);}
+}
+
+/*** 全文字にアニメーションを適用 ***/
+.bound span{
+  display: inline-block; /*横並びにしつつアニメーションを適用*/
+  animation: .9s bound-anim ease-in infinite alternate;
+}
+
+/*** 各文字のスタート時間をずらす ***/
+/* 1文字目 */
+.bound span:nth-child(1){
+  animation-delay: 0;
+}
+/* 2文字目 */
+.bound span:nth-child(2){
+  animation-delay: 0.2s;
+}
+/* 3文字目 */
+.bound span:nth-child(3){
+  animation-delay: 0.4s;
+}
+/* 4文字目 */
+.bound span:nth-child(4){
+  animation-delay: 0.6s;
+}
+.bound span:nth-child(5){
+  animation-delay: 0.8s;
+}
+/* 1文字目 */
+.bound span:nth-child(6){
+  animation-delay: 0.8s;
+}
+/* 2文字目 */
+.bound span:nth-child(7){
+  animation-delay: 0.6s;
+}
+/* 3文字目 */
+.bound span:nth-child(8){
+  animation-delay: 0.4s;
+}
+/* 4文字目 */
+.bound span:nth-child(9){
+  animation-delay: 0.2s;
+}
+.bound span:nth-child(10){
+  animation-delay: 0;
+}
+/*** 装飾用 ***/
+p{
+  font-size: 9rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+}
+
+
+.btn-circle-3d {
+  display: inline-block;
+  text-decoration: none;
+  background: #8184ffcf;
+  color: #ffffff;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #8184ffb5;
+  transition: .4s;
+  margin: 50px;
+  font-size: 30px;
+}
+
+.btn-circle-3d:active {
+  /* -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: none; */
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+
+.top-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* カラーの高さを調整 */
+  background-color: #00d0ff1f; /* 任意のカラーに変更 */
+  z-index: 9999; /* 他の要素よりも上に配置 */
+  pointer-events: none;
+}

@@ -1,0 +1,146 @@
+/*------ 週報 ------*/
+/* 
+.shuhou > input[type="text"]{
+	text-align: center;
+    letter-spacing: 200%;
+} */
+
+body{
+   margin: 0;
+}
+
+textarea{
+    font-size: 40px;
+    width: 900px;
+    height: 600px;
+    margin: auto;
+    background-color: cornsilk;
+    color: #e77a7a;
+    padding: 0.2em 0.5em;
+    box-shadow: 0px 0px 0px 10px cornsilk;
+    border: dashed 2px #ffc3c3;
+    border-radius: 8px;
+    outline: none;
+}
+/* html{
+    background-color: #f3b6c2;
+} */
+header {
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: #e77a7a;
+    display: flex;
+    align-items: center;
+ }
+
+ header > h1{
+    color: #fff;
+    margin: 0 0 0 20px;
+    font-size: 25px;
+ }
+
+ h2{
+    margin: auto;
+    color: #fff;
+ }
+
+ nav{
+    margin: 0 30px 0 0;
+ }
+
+ ul{
+    list-style: none;
+ }
+
+ li > a{
+    color: #fff;
+    font-size: 20px;
+ }
+
+ a:hover{
+    color: #7c0808;
+ }
+
+ body > h1{
+   text-align: center;
+   margin: 0 0 50px 0;
+   color: #fffffff5;
+   padding: 8px 0;
+    background-color: rgba(193,0,41,1);
+	background-image:
+	 linear-gradient(45deg, rgba(204,0,81,1) 25%, transparent 25%,
+	  transparent 75%, rgba(204,0,81,1) 75%, rgba(204,0,81,1)),
+	 linear-gradient(-45deg, rgba(204,0,81,1) 25%, transparent 25%,
+	  transparent 75%, rgba(204,0,81,1) 75%, rgba(204,0,81,1));
+	background-size: 20px 20px;
+	background-position: 0 0, 10px 10px;
+ }
+ p{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+ }
+ 
+ .btn-circle-3d {
+   text-decoration: none;
+   background: #e77a7a;
+   color: #ffffff;
+   width: 120px;
+   height: 120px;
+   line-height: 120px;
+   border-radius: 50%;
+   text-align: center;
+   font-weight: bold;
+   overflow: hidden;
+   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+   border: 0;
+   transition: .4s;
+   margin: 20px 50px;
+   font-size: 26px;
+ }
+ 
+ .btn-circle-3d:active {
+   /* -webkit-transform: translateY(2px);
+   transform: translateY(2px);
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+   border-bottom: none; */
+   -webkit-transform: rotateY(360deg);
+   transform: rotateY(360deg);
+ }
+
+ .align-center{
+   align-items: center;
+ }
+
+ .display-flex{
+   display: flex;
+   justify-content: center;
+ }
+
+ .bg_pattern {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   /* background-color: #ffe9a7; */
+   opacity: 0.4;
+   z-index: -1;
+ }
+ .Cross {
+   background: radial-gradient(circle, transparent 20%, #e77a7a 20%, #e77a7a 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e77a7a 20%, #e77a7a 80%, transparent 80%, transparent) 50px 50px, linear-gradient(#ff1212cc 4px, transparent 4px) 0 -2px, linear-gradient(90deg, #ff1212cc 4px, #e77a7a 4px) -2px 0;
+ background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
+ }
+
+ .top-layer {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%; /* カラーの高さを調整 */
+   background-color: #9d4d4d1a; /* 任意のカラーに変更 */
+   z-index: 9999; /* 他の要素よりも上に配置 */
+   pointer-events: none;
+ }

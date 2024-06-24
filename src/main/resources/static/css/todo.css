@@ -1,0 +1,251 @@
+/* html{
+    background-color: #b2cdf5;
+}
+body{
+   margin: 0;
+} */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+  background: #b2cdf5;
+}
+
+header {
+  padding: 0;
+  position: relative;
+  top: 0;
+  width: 100%;
+  background-color: #678bec;
+  display: flex;
+  align-items: center;
+}
+
+header > h1 {
+  color: #fff;
+  margin: 0 0 0 20px;
+  font-size: 25px;
+}
+
+h2 {
+  margin: auto;
+  color: #fff;
+}
+
+nav {
+  margin: 0 30px 0 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li > a {
+  color: #fff;
+  font-size: 20px;
+}
+
+a:hover {
+  color: #0d195f;
+}
+
+body > h1 {
+  padding: 10px 0;
+  margin: 0 0 70px 0;
+  background-color: rgb(47 93 139 / 40%);
+  background-image: linear-gradient(
+      90deg,
+      rgba(165, 210, 255, 0.3) 50%,
+      transparent 50%
+    ),
+    linear-gradient(rgba(165, 210, 255, 0.3) 50%, transparent 50%);
+  background-size: 40px 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.display-flex{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  margin: 0 auto 60px;
+  border-radius: 100px;
+  padding: 20px 0 0 0;
+  border: dashed 3px #5570af88;
+  box-shadow: 0px 0px 0px 12px #fff;
+  width: 600px;
+}
+
+h3 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  background: #b2cdf5;
+}
+
+.pochitto_btn_blue {	display: inline-block;	width: 47px;	text-align: center;	text-decoration: none;	color: #fff;	background:#8ab0db; border-radius: 9px; border:double 4px #fff;}
+.pochitto_btn_blue:hover { cursor: pointer; text-decoration: none; background:#005691; 
+}
+
+.title{
+  border: dashed 3px #5570af88;
+  box-shadow: 0px 0px 0px 12px #fff;
+  border-radius: 20px;
+  font-size: 15px;
+  margin-left: 170px;
+  outline: none;
+  width: 500px;
+  height: 30px;
+  padding-left: 20px;
+}
+
+.top-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* カラーの高さを調整 */
+  background-color: #ccd5ff14; /* 任意のカラーに変更 */
+  z-index: 9999; /* 他の要素よりも上に配置 */
+  pointer-events: none;
+}
+
+.tuika{
+    width: 120px;
+    padding: 10px 0;
+    border: 1px solid #b1cfef;
+    border-radius: 25px;
+    box-shadow: 6px 6px 12px #9eb7f9, -6px -6px 12px #c0daf5;
+    background-color: #b4cef6;
+    color: #2f4fa5;
+    font-weight: 170;
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+
+.tuika:hover{
+  box-shadow: inset 4px 4px 12px #9eb7f9, inset -4px -4px 12px #c0daf5;
+}
+
+.sakuzyo{
+  margin-left: 5px;
+  padding-top: 5px;
+}
+
+.delete-button img {
+  width: 25px;
+  height: 25px;
+}
+
+.delete-button{
+    /* width: 47px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: #8ab0db;
+    border-radius: 9px;
+    border: double 4px #fff; */
+    height: 30px;
+    border: none;
+    background-color: #fff8dc00;
+    margin-bottom: 10px;
+}
+
+.delete-button img:hover{
+  width: 30px;
+  height: 30px;
+}
+
+.my-input{
+  width: 400px;
+  height: 30px;
+  border-bottom: solid 3px #84a4cf;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 20px; /*発表用*/
+}
+
+.error-message{
+	color: red;
+	font-size: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  color: #6f91ed;
+  transition: color 0.3s;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .checkmark {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #6f91ed;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.custom-checkbox .checkmark::before {
+  content: "\2713";
+  font-size: 16px;
+  color: transparent;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #6f91ed;
+  border-color: #6f91ed;
+  transform: scale(1.1) rotateZ(360deg) rotateY(360deg);
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::before {
+  color: #fff;
+}
+
+.custom-checkbox:hover {
+  color: #666;
+}
+
+.custom-checkbox:hover .checkmark {
+  border-color: #666;
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.custom-checkbox input[type="checkbox"]:focus + .checkmark {
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.custom-checkbox .checkmark,
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  transition: background-color 1.3s, border-color 1.3s, color 1.3s, transform 0.3s;
+}

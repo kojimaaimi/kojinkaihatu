@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <title>ホーム</title>
+</head>
+<header>
+    <h1>CL_You~*</h1>
+    <!-- <nav>
+        <ul>
+            <li><a href="/todo">Todoリスト</a></li>
+            <li><a href="/memo/summary">memo</a></li>
+            <li><a href="/shuhou">週報</a></li>
+            </ul>
+            </nav> -->
+</header>
+            
+<body>
+    <main class="main">
+        <h2 th:text="${username}+'ようこそ'">ようこそ</h2>
+        <!-- <img src="https://data-onecareer.s3.amazonaws.com/uploads/company/square_logo/93330/bc8437ed-2a64-46ba-93e1-6ac2f43245c5-%E7%94%BB%E5%83%8F2%EF%BC%95.png" alt="会社のロゴ"> -->
+        <p id="current-time">ここに時間が表示されます。</p>
+        </main>
+        
+        <p class="bound">
+            <span>C</span>
+            <span>o</span>
+            <span>n</span>
+            <span>s</span>
+            <span>a</span>
+            <span>l</span>
+            <span>L</span>
+            <span>i</span>
+            <span>n</span>
+            <span>k</span>
+            </p>
+            
+            
+            <a href="/todo" class="btn-circle-3d">Todo</a>
+            <a href="/memo/summary" class="btn-circle-3d">memo</a>
+            <a href="/shuhou" class="btn-circle-3d">週報</a>
+            
+            <div class="top-layer"></div>
+    
+
+    <script>
+        // 現在の時間を取得する関数
+        function getCurrentTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0'); // 時を取得
+            const minutes = now.getMinutes().toString().padStart(2, '0'); // 分を取得
+            const seconds = now.getSeconds().toString().padStart(2, '0'); // 秒を取得
+            return `${hours}:${minutes}:${seconds}`; // 時間を文字列として返す
+        }
+
+        // 1秒ごとに時間を更新する関数
+        function updateTime() {
+            const currentTimeElement = document.getElementById('current-time');
+            if (currentTimeElement) {
+                currentTimeElement.textContent = getCurrentTime(); // 現在の時間を表示する
+            }
+        }
+
+        // ページが読み込まれたときに初期表示を行う
+        window.onload = function () {
+            updateTime(); // 初期表示
+            setInterval(updateTime, 1000); // 1秒ごとに時間を更新
+        }
+    </script>
+</body>
+</html>
+

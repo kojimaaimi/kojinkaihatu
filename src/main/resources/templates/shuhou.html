@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/shuhou.css}" />
+    <title>週報</title>
+  </head>
+  <header>
+    <h1>CL_You~*</h1>
+    <h2 th:text="${username}+'ようこそ'">ようこそ</h2>
+    <nav>
+      <ul>
+        <li><a href="/">ホームへ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <h1>週報</h1>
+    <!-- <h1 th:text="${username}+'ようこそ'">ようこそ</h1> -->
+    <p class="shuhou">
+      <!-- コピー対象要素とコピーボタンcols="100" rows="50" -->
+      <textarea id="textAreaField"></textarea>
+    </p>
+
+    <!-- <button id="sampleTextIns">テキストを挿入</button>
+    <button onclick="copyToClipboard()">Copy text</button> -->
+    <!-- bodyタグ内の下部に以下を入力する -->
+    <!-- <button type=“button” onclick="window.open('https://angledge.app.consallink.co.jp/articles')">週報ページ</button> -->
+    <!-- <button onclick="location.href='/'">ホームボタン</button> -->
+
+    <div class="display-flex align-center">
+      <button id="sampleTextIns" class="btn-circle-3d">週報</button>
+      <button onclick="copyToClipboard()" class="btn-circle-3d">
+        コピー
+      </button>
+      <!-- bodyタグ内の下部に以下を入力する -->
+      <button
+        type="“button”"
+        onclick="window.open('https://angledge.app.consallink.co.jp/articles')"
+        class="btn-circle-3d"
+      >
+        週報URL
+      </button>
+    </div>
+
+    <div class="bg_pattern Cross"></div>
+    <!-- <div class="cp_bgpattern10"></div> -->
+    <div class="top-layer"></div>
+
+    <script>
+      function copyToClipboard() {
+        // コピー対象をJavaScript上で変数として定義する
+        var copyTarget = document.getElementById("textAreaField");
+
+        // コピー対象のテキストを選択する
+        copyTarget.select();
+
+        // 選択しているテキストをクリップボードにコピーする
+        document.execCommand("Copy");
+
+        // コピーをお知らせする
+        alert("コピーできました！ : " + copyTarget.value);
+      }
+
+      document.getElementById("sampleTextIns").addEventListener(
+        "click",
+        () => {
+          // 対象を選択
+          let textAreaField = document.getElementById("textAreaField");
+          var mystring =
+            "# 【案件名】\n" +
+            "## 今週の作業・進捗\n" +
+            "## 次週の作業予定\n" +
+            "## 所感 \n" +
+            "## 連絡事項・その他";
+          textAreaField.innerHTML = mystring;
+        },
+        // イベントは一回だけ
+        { once: true }
+      );
+    </script>
+  </body>
+</html>

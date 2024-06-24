@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>User Registration</title>
+</head>
+
+<body>
+    <main class="main">
+        <form class="form" th:action="@{/user/registration}" method="post" th:object="${form}">
+            <h1 class="form__title">CL_You~*</h1>
+            <p th:if="${error}" class="error-message" th:text="${error}"></p>
+            <p class="form__item">
+				<label for="username">ユーザーネーム</label>
+                <input type="text" placeholder="  ユーザーネーム" name="username" id="username">
+				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-message"></p>
+            </p>
+            <p class="form__item">
+				<label for="password">パスワード （4～20文字の半角英数字）</label>
+                <input type="password" placeholder="  パスワード" name="password" id="password">
+				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></p>
+            </p>
+            <p class="form__item">
+				<label for="confirm-password">パスワードの確認</label>
+                <input type="password" placeholder="  パスワード" name="confirmPassword" id="confirm-password">
+				<p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="error-message"></p>
+            </p>
+            <button class="form__item  btn002-01">
+                <input type="submit" value="新規登録" class="text">
+            </button>
+            <a href="/login" class="to-user-registration">ログインへ</a>
+        </form> 
+    </main>
+    <div class="top-layer"></div>
+</body>
+</html>

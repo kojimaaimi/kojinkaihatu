@@ -1,0 +1,216 @@
+html{
+    /* background-color: #d2efe6; */
+    background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em, radial-gradient(#b7f1df, #d2efe6);
+  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+  background-repeat: repeat;
+}
+
+body{
+   margin: 0;
+}
+
+table{
+    background-color:#fff;
+    margin: auto;
+    border-radius: 8px;
+    padding: 20px 40px;
+    border: dashed 3px #58a59a85;
+    box-shadow: 0px 0px 0px 12px #fff;
+}
+header {
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: #60afa4;
+    display: flex;
+    align-items: center;
+ }
+
+ header > h1{
+    color: #fff;
+    font-size: 25px;
+    margin: 0 0 0 20px;
+ }
+
+ h2{
+    margin: auto;
+    color: #fff;
+ }
+
+ nav{
+    margin: 0 30px 0 0;
+ }
+
+ ul{
+    list-style: none;
+ }
+
+ li > a{
+    color: #fff;
+    font-size: 20px;
+ }
+
+ a:hover{
+    color: #095c3c;
+ }
+
+ body > h1{
+   margin: 0 0 100px 0;
+   text-align: center;
+   color: #fff;
+   background-color: #0097A7;
+	background-size: 10px 10px;
+	background-image:
+	 linear-gradient(45deg,  #00838F 25%, #00838F 25%, transparent 25%,
+	  transparent 75%, #00838F 75%, #00838F 75%),
+	 linear-gradient(-45deg, #00838F 25%, #00838F 25%, transparent 25%,
+	  transparent 75%, #00838F 75%, #00838F 75%);
+ }
+
+ .error-message{
+	color: red;
+	font-size: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+h3{
+   text-align: center;
+   padding-top: 60px;
+   color: #00838f;
+}
+
+form{
+   text-align: center;
+}
+
+.button-21 {
+   /* display: flex; */
+   justify-content: center;
+   align-items: center;
+   width: 120px;
+   padding: 10px 0;
+   border: 1px solid #d2efe6;
+   border-radius: 25px;
+   box-shadow: 6px 6px 12px #afddce, -6px -6px 12px #e4fcf4;
+   background-color: #d2efe6;
+   color: #60afa4;
+   font-weight: 170;
+   font-size: 20px;
+   margin-left: 50px;
+
+}
+
+.button-21:hover {
+   box-shadow: inset 4px 4px 12px #b2d8cc, inset -4px -4px 12px #e5f3f2;
+}
+
+.pochitto_btn_blue {	display: inline-block;	width: 47px;	text-align: center;	text-decoration: none;	color: #fff;	background:#60afa4; border-radius: 9px; border:double 4px #fff;
+}
+.pochitto_btn_blue:hover { cursor: pointer; text-decoration: none; background:#00838f; color: #fff; 
+}
+
+.sakuzyo{
+   font-size: 15px;
+   padding-right: 35px;
+}
+
+.title{
+   border: dashed 3px #58a59a85;
+    box-shadow: 0px 0px 0px 12px #fff;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-left: 70px;
+    outline: none;
+    width: 400px;
+    height: 100px;
+    padding-left: 20px;
+}
+
+.memo{
+   background-color: #c4ddca87;
+   padding: 0 20px;
+}
+
+th {
+   color: #00838f;
+}
+
+.top-layer {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%; /* カラーの高さを調整 */
+   background-color: #1f51250f; /* 任意のカラーに変更 */
+   z-index: 9999; /* 他の要素よりも上に配置 */
+   pointer-events: none;
+ }
+
+ .hidden {
+   
+   display: none;
+}
+
+.memoanime:hover {
+   transform: scale(1.1); /* 拡大率はお好みで調整してください */
+   transition: transform 0.3s ease; /* スムーズなトランジションを追加 */
+   z-index: 1; /* ホバーした要素を他の要素よりも前面に表示 */
+   font-size: 20px;
+}
+.memoanime {
+   position: relative;
+}
+.memoanime .hover-content {
+   display: none;
+   position: absolute;
+   top: 100%; /* メモの要素の下に配置 */
+   left: 0;
+   background-color: #028089; /* 背景色 */
+   padding: 30px; /* 余白 */
+   border: 3px dashed #fff; /* ボーダー */
+   border-radius: 5px; /* 角丸 */
+   box-shadow:0px 0px 0px 12px #028089; /* ボックスシャドウ */
+   /* z-index: 9999; 要素が他の要素の上に表示されるようにする */
+   width: 500px; /* 幅 */
+   max-height: 200px; /* 最大の高さ */
+   overflow-y: auto; /* コンテンツが領域からはみ出した場合にスクロールバーを表示 */
+   color: #fff;
+}
+.memoanime:hover .hover-content {
+   display: block;
+}
+
+.hover-content {
+   display: none;
+   transition: opacity 0.3s ease; /* スムーズなフェードイン効果を追加 */
+}
+.memoanime:hover .hover-content {
+   display: block;
+}
+
+@keyframes fadeIn {
+   from {
+       opacity: 0;
+   }
+   to {
+       opacity: 1;
+   }
+}
+.hover-content {
+   display: none;
+   animation: fadeIn 0.3s ease; /* フェードインアニメーションを追加 */
+   white-space: pre-line; /* 改行を保持するように設定 */
+}
+.memoanime:hover .hover-content {
+   display: block;
+}
+
+.registration{
+   text-align: center;
+}
+
+.post{
+   margin-bottom: 70px;
+}
