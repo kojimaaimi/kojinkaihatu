@@ -46,3 +46,7 @@ tasks.named('test') {
 compileJava {
     options.compilerArgs << "-parameters"
 }
+
+bootRun {
+    DemoApplication = 'com.example.Application' // あなたのSpring Bootアプリケーションのエントリーポイントに合わせて設定
+}
