@@ -35,7 +35,7 @@ dependencies {
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     
 }
  
@@ -45,8 +45,4 @@ tasks.named('test') {
 
 compileJava {
     options.compilerArgs << "-parameters"
-}
-
-bootRun {
-    DemoApplication = 'com.example.Application' // あなたのSpring Bootアプリケーションのエントリーポイントに合わせて設定
 }
